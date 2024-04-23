@@ -1,11 +1,16 @@
 const express = require("express");
 const app = express();
-//const cors = require('cors');
+const cors = require('cors');
 const token = require('./util/token');
 const salaController = require('./controllers/salaController');
 const usuarioController = require('./controllers/usuarioController');
 
-//app.use(cors());
+const corsOptions = {
+  origin: "*"
+};
+
+app.use(cors(corsOptions));
+
 app.use(express.urlencoded({extended : true}));
 app.use(express.json());
 
